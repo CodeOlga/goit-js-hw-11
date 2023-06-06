@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 
 const API_KEY = '37056848-912ded0eb5e75838ece32e5ab';
 axios.defaults.baseURL = 'https://pixabay.com/api/';
-BASE_URL = 'https://pixabay.com/api/';
+// BASE_URL = 'https://pixabay.com/api/';
 const searchForm = document.querySelector('#search-form');
 const galleryContainer = document.querySelector('.gallery');
 // const loadMoreBtn = document.querySelector('.load-more');
@@ -20,8 +20,8 @@ async function fetchImages(q, page) {
       params: {
         key: API_key,
         q,
-        image_type: photo,
-        orientation: horizontal,
+        image_type: 'photo',
+        orientation: 'horizontal',
         safesearch: true,
         page,
         per_page: 40,
