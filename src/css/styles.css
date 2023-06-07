@@ -1,8 +1,8 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
 .container {
   position: fixed;
   top: 0;
-  /* z-index: 9999; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +25,7 @@
   padding: 8px;
   color: #393939;
 }
+
 .gallery {
   padding-top: 86px;
   padding-left: 16px;
@@ -34,11 +35,13 @@
   gap: 16px;
   flex-wrap: wrap;
 }
+
 .photo-card {
   border-radius: 5px;
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
+
 .photo-card img {
   display: block;
   margin: 0 auto;
@@ -46,6 +49,7 @@
   width: 100%;
   object-fit: cover;
 }
+
 .link-card {
   flex-basis: calc((100% - 48px) / 4);
   text-decoration: none;

@@ -1,5 +1,5 @@
-// const galleryContainer = document.querySelector('.gallery');
 import { galleryContainer } from './index.js';
+
 function renderGallery(photos) {
   const markup = photos
     .map(

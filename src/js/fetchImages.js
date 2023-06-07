@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+
 const API_KEY = '37056848-912ded0eb5e75838ece32e5ab';
 axios.defaults.baseURL = 'https://pixabay.com/api/';
 
@@ -20,7 +21,7 @@ async function fetchImages(q, page) {
     return data;
   } catch (error) {
     Notiflix.Notify.failure(
-      `Oooops... Something goes wrong. Please, try again.`
+      `Ooops... Something goes wrong. Please, try again.`
     );
   }
 }
