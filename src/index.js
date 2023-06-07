@@ -16,6 +16,8 @@ let queryToFetch = '';
 //Нескінченний скрол. Створюємо екземпляр класу IntersectionObserver (він вбудований в JS)
 //назва змінної може буть будь-яка
 //entries - це массив з точок, за якими слідкуємо (ціль), по факту це масив з одного елемента (не питати чому)
+//entry - це точка, елемент за яким я слідкую
+//перевіряємо: якщо entry відслідковується (isIntersecting - метод вбудований) - викликаємо функцію getImages
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
@@ -62,15 +64,18 @@ async function getImages(query, page) {
   console.log(data);
   const photos = data.hits;
   renderGallery(photos);
+  // if (data.page === 1) {
   Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
-  // if (data.totalHits > 1 && pageToFetch + 1 !== data.totalHits) {
+  // }
+  // if (data.page > 1 && pageToFetch + 1 !== data.page) {
   //   Notiflix.Notify.failure(
   //     `We're sorry, but you've reached the end of search results.`
   //   );
-  //   //       button.classList.remove("unvisible");
   // }
-  // loader.classList.add('unvisible');
+
   pageToFetch += 1;
+  //викликаємо observer на ньому вбудований метод observe.
+  //(guard) - це той елемент, за яким буде відбуватися слідкування, він піде в entry;
   observer.observe(guard);
 }
 
@@ -109,6 +114,8 @@ function renderGallery(photos) {
   galleryContainer.insertAdjacentHTML('beforeend', markup);
 }
 
+// <a href='${largeImageURL}' class='large-image' >
+
 function handleSubmit(e) {
   e.preventDefault();
   const inputValue = e.target.elements.searchQuery.value;
@@ -121,6 +128,7 @@ function handleSubmit(e) {
   queryToFetch = inputValue;
   pageToFetch = 1;
   galleryContainer.innerHTML = '';
+  //знимаємо старий observer при новому запиті
   observer.unobserve(guard);
   getImages(queryToFetch, pageToFetch);
   searchForm.reset();

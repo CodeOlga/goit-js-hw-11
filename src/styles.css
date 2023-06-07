@@ -1,5 +1,8 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 .container {
+  position: fixed;
+  top: 0;
+  /* z-index: 9999; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,12 +26,15 @@
   color: #393939;
 }
 .gallery {
+  padding-top: 86px;
+  padding-left: 16px;
+  padding-right: 16px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
 .photo-card {
-  flex-basis: calc((100% - 60px) / 4);
+  flex-basis: calc((100% - 48px) / 4);
   border-radius: 5px;
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
@@ -40,6 +46,11 @@
   width: 100%;
   object-fit: cover;
 }
+/* img {
+  width: 100%;
+  height: auto;
+} */
+
 .info {
   display: flex;
   justify-content: space-around;
