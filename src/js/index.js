@@ -30,6 +30,11 @@ const observer = new IntersectionObserver(
   { rootMargin: '200px' }
 );
 
+//бібліотека
+const gallery = new SimpleLightbox('.gallery a', {
+  captionDelay: 250,
+});
+
 async function getImages(query, page) {
   const data = await fetchImages(query, page);
 
@@ -43,11 +48,6 @@ async function getImages(query, page) {
 
   const photos = data.hits;
   renderGallery(photos);
-
-  //бібліотека
-  const gallery = new SimpleLightbox('.gallery a', {
-    captionDelay: 250,
-  });
 
   //на першій сторінці
   if (pageToFetch === 1) {
@@ -66,6 +66,7 @@ async function getImages(query, page) {
   //викликаємо observer на ньому вбудований метод observe.
   //(guard) - це той елемент, за яким буде відбуватися слідкування, він піде в entry;
   observer.observe(guard);
+
   gallery.refresh();
 }
 
@@ -88,6 +89,7 @@ function handleSubmit(e) {
   observer.unobserve(guard);
 
   getImages(queryToFetch, pageToFetch);
+  gallery.refresh();
   searchForm.reset();
 }
 
