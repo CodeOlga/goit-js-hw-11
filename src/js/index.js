@@ -55,10 +55,13 @@ async function getImages(query, page) {
   }
 
   //завершення колекції
-  if (data.totalHits <= pageToFetch * 40) {
+  const totalPagesPerSubmit = Math.ceil(data.totalHits / 40);
+
+  if (pageToFetch === totalPagesPerSubmit) {
     Notiflix.Notify.info(
       `We're sorry, but you've reached the end of search results.`
     );
+    observer.unobserve(guard);
   }
 
   pageToFetch += 1;
