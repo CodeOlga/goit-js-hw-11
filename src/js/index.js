@@ -62,6 +62,7 @@ async function getImages(query, page) {
       `We're sorry, but you've reached the end of search results.`
     );
     observer.unobserve(guard);
+    return;
   }
 
   pageToFetch += 1;

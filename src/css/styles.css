@@ -71,4 +71,13 @@
   .info {
     flex-direction: column;
   }
+  .link-card {
+    flex-basis: calc((100% - 36px) / 3);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .link-card {
+    flex-basis: calc((100% - 24px) / 2);
+  }
 }
