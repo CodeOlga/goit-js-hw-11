@@ -70,6 +70,7 @@ async function getImages(query, page) {
   //(guard) - це той елемент, за яким буде відбуватися слідкування, він піде в entry;
   observer.observe(guard);
 
+  //викликаємо метод refresh бібліотеки simplelightbox після оновлення DOM
   gallery.refresh();
 }
 
