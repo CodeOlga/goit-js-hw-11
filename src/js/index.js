@@ -10,7 +10,7 @@ const guard = document.querySelector('.guard');
 
 searchForm.addEventListener('submit', handleSubmit);
 
-let pageToFetch = 1;
+let pageToFetch;
 let queryToFetch = '';
 
 //Нескінченний скрол. Створюємо екземпляр класу IntersectionObserver (він вбудований в JS)
@@ -94,7 +94,6 @@ function handleSubmit(e) {
   observer.unobserve(guard);
 
   getImages(queryToFetch, pageToFetch);
-  gallery.refresh();
   searchForm.reset();
 }
 
