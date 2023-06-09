@@ -20,7 +20,7 @@ async function fetchImages(q, page) {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     Notiflix.Notify.failure(
       `Ooops... Something goes wrong. Please, try again.`
     );
