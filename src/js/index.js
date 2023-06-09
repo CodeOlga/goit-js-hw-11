@@ -49,15 +49,6 @@ async function getImages(query, page) {
   const photos = data.hits;
   renderGallery(photos);
 
-  const { height: cardHeight } = document
-    .querySelector('.gallery')
-    .firstElementChild.getBoundingClientRect();
-
-  window.scrollBy({
-    top: cardHeight * 0.01,
-    behavior: 'smooth',
-  });
-
   //на першій сторінці
   if (pageToFetch === 1) {
     Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
